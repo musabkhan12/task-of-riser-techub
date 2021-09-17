@@ -5,7 +5,7 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 
 // dotenv.config();
-require("dotenv").config();
+dotenv.config();
 
              
 // connect to db
@@ -17,14 +17,14 @@ mongoose.connect(
 );
 
 // Import routes
-const studentsRoutes = require("./routes/students");
+const marksRoutes = require("./routes/marks");
 
 // Middlewares
 app.use(express.json());
-app.use(cors());
+app.use(cors()); 
 
 // route Middlewares
-app.use("/api/students", studentsRoutes);
+app.use("/api/marks", marksRoutes);
 
 
 app.listen(process.env.PORT, () => console.log(`server up and runing on port `)); 
