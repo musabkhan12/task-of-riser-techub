@@ -23,10 +23,19 @@ const mark_details = async (req, res) => {
 // Add New mark
 const mark_create = async (req, res) => {
     const mark = new Mark({
+     
       _id:req.body._id,
-      name:req.body.name,
-      subject:req.body.subject,
-      totalmark:req.body.totalmark
+
+          Mathematics:req.body.Mathematics,
+        
+          English:req.body.English,
+       
+         Science:req.body.Science, 
+       
+         Computerscience:req.body.Computerscience, 
+
+         rollno:req.body.rollno
+       
       });
     
       try {
@@ -41,11 +50,17 @@ const mark_create = async (req, res) => {
 const mark_update = async (req, res) => {
     try {
         const mark = {
-        _id:req.body._id,
-        name: req.body.name,
-        subject:req.body.subject,
-        totalmark:req.body.totalmark
-        };
+        
+         _id:req.body._id,
+          Mathematics:req.body.Mathematics,
+        
+          English:req.body.English,
+       
+         Science:req.body.Science,
+       
+          Computerscience:req.body.Computerscience,
+          rollno:req.body.rollno
+        }
     
         const updatedMark = await Mark.findByIdAndUpdate(
           { _id: req.params.studentId },
@@ -67,10 +82,14 @@ const mark_delete = async (req, res) => {
       }
 };
 
+
+
+
 module.exports = {
   mark_all, 
   mark_details, 
   mark_create, 
   mark_update, 
-  mark_delete
+  mark_delete,
+ 
   }
